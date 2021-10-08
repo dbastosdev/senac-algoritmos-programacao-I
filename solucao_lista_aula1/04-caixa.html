@@ -1,0 +1,124 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+
+<h1>Caixa eletrônico</h1>
+
+    <script>
+
+        // 1- Receber a entrada da quantidade de dinheiro;
+        // 2- Avaliar a quantidade de notas para cada cédula;
+        // 3- Compor a menor quantidade cédulas e exibir ao usuário.
+
+        alert("Bem vindo ao caixa eletrônico");
+
+        // Recebe o valor do saque
+        let valorSaque = parseInt(prompt("Digite o valor que deseja sacar: "));
+
+        // Contabiliza o número de cédulas para cada nota
+        let notasCem = 0;
+        let notasCinquenta = 0;
+        let notasVinte = 0;
+        let notasDez = 0;
+        let notasCinco = 0;
+        let notasDois = 0;
+        let notasUm = 0;
+        let saldo = 0;
+
+        // Opções para cada cédula
+        if(valorSaque % 100 == 0){
+            notasCem = valorSaque / 100;
+        } 
+        
+        if(valorSaque % 50 == 0){
+            notasCinquenta = valorSaque / 50;
+        } 
+        
+        if(valorSaque % 20 == 0){
+            notasVinte = valorSaque / 20;
+        } 
+        
+        if (valorSaque % 10 == 0){
+            notasDez = valorSaque / 10;
+        } 
+        
+        if(valorSaque % 5 == 0){
+            notasCinco = valorSaque / 5;
+        }
+
+        if(valorSaque % 2 == 0){
+            notasDois = valorSaque / 2;
+        } 
+
+        notasUm = valorSaque; 
+
+        // Imprime possibilidades: 
+        document.writeln(`<h2>Combinações de uma única cédula</h2>`);
+        document.writeln(`Notas de R$ 100,00 - ${notasCem} <br>`);
+        document.writeln(`Notas de R$ 50,00 - ${notasCinquenta} <br>`);
+        document.writeln(`Notas de R$ 20,00 - ${notasVinte} <br>`);
+        document.writeln(`Notas de R$ 10,00 - ${notasDez} <br>`);
+        document.writeln(`Notas de R$ 5,00 - ${notasCinco}<br>`);
+        document.writeln(`Notas de R$ 2,00 - ${notasDois}<br>`);
+        document.writeln(`Notas de R$ 1,00 - ${notasUm}<br>`);
+        document.writeln(`<br>`);
+        document.writeln(`<br>`);
+
+        notasCem = 0;
+        notasCinquenta = 0;
+        notasVinte = 0;
+        notasDez = 0;
+        notasCinco = 0;
+        notasDois = 0;
+        notasUm = 0;
+        saldo = 0;
+
+        // Avalia a melhor composição
+        if(valorSaque >= 100){
+            notasCem = parseInt(valorSaque / 100);
+            saldo = valorSaque - (notasCem * 100);
+        } else {
+            saldo = valorSaque;
+        }
+
+        if(saldo >= 50){
+            notasCinquenta = parseInt(saldo / 50);
+            saldo = saldo - (notasCinquenta * 50);
+        } 
+        
+        if(saldo >= 20){
+            notasVinte = parseInt(saldo / 20);
+            saldo = saldo - (notasVinte * 20);
+        } 
+        
+        if(saldo >= 10){
+            notasDez = parseInt(saldo / 10);
+            saldo = saldo - (notasDez * 10);
+        } 
+        
+        if(saldo >= 5){
+            notasCinco = parseInt(saldo / 5);
+            saldo = saldo - (notasCinco * 5);
+        } 
+        
+        if(saldo >= 2){
+            notasDois = parseInt(saldo / 2);
+            saldo = saldo - (notasDois * 2);
+        } 
+        
+        if(saldo >= 1){
+            notasUm = parseInt(saldo / 1);
+        } 
+
+        // Imprime melhor composição 
+        document.writeln(`<h2>Menor quantidade de cédulas</h2>`);
+        document.writeln(`Notas de R$ 100,00 - ${notasCem} <br>`);
+        document.writeln(`Notas de R$ 50,00 - ${notasCinquenta} <br>`);
+        document.writeln(`Notas de R$ 20,00 - ${notasVinte} <br>`);
+        document.writeln(`Notas de R$ 10,00 - ${notasDez} <br>`);
+        document.writeln(`Notas de R$ 5,00 - ${notasCinco}<br>`);
+        document.writeln(`Notas de R$ 2,00 - ${notasDois}<br>`);
+        document.writeln(`Notas de R$ 1,00 - ${notasUm}<br>`);
+
+
+    </script>
+

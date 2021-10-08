@@ -1,0 +1,44 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+    
+    <h1>Cálculo do ano bissexto</h1>
+
+    <script>
+        // Recebimento do ano
+        // Cálculo se é ou não bissexto
+        // Exibição dos resultados
+
+        /*Feitas as correções de calendário definiu-se a nova regra para o 
+        cálculo dos anos bissextos:
+
+        De 4 em 4 anos é ano bissexto.
+        De 100 em 100 anos não é ano bissexto.
+        De 400 em 400 anos é ano bissexto.
+        Prevalecem as últimas regras sobre as primeiras.[2]
+        Para melhor entender
+
+        São bissextos todos os anos múltiplos de 400, p.ex: 1600, 2000, 2400, 2800...
+        São bissextos todos os múltiplos de 4, exceto se for múltiplo de 100 
+        mas não de 400, p.ex: 1996, 2000, 2004, 2008, 2012, 2016, 2020...
+        Não são bissextos todos os demais anos.
+        
+        mais testes: são bissextos: 1988, 1992, 1996, 2000, 2004, 
+        2008, 2012, 2016, 2020, 2024, 2028, 2032, 2036, 2040, 2044, 2048, 2052*/
+        
+        //Recebimento do ano
+        let ano = parseInt(prompt("Digite um ano: "));
+
+        //Aplicação das regras: 
+        if(ano % 400 == 0){
+            alert(`O ano ${ano} é bissexto`);
+        } else if (ano % 4 == 0){
+            if((ano % 400 == 0) && (ano % 100 == 0)){
+                alert(`O ano ${ano} não é bissexto`);    
+            } else {
+                alert(`O ano ${ano} é bissexto`);
+            }
+        } else {
+            alert(`O ano ${ano} não é bissexto`);
+        }
+
+    </script>

@@ -1,0 +1,36 @@
+ <!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+
+    <script>
+
+        // Receber os dois numeros;
+        // Filtrar os maior e o menor
+        // Imprimir o resultado
+
+        // Variável auxiliar
+        let maior = 0;
+        let menor = 0;
+
+        //1- Recebimento dos 10 números: 
+        for( let i = 1; i < 11; i++){
+           let entrada = parseInt(prompt(`Digite o ${i}º número da sequencia`));
+           
+           // Define maior e menor como iguais
+           if(i == 1){
+               maior = entrada;
+               menor = entrada;
+           }
+
+           // Filtra maior e menor
+           if(entrada > maior){
+               maior = entrada;
+           } else if(entrada < menor){
+               menor = entrada;
+           }
+            
+        }
+      
+       // Exibe o maior e menor número
+       alert(`O maior número da sequência e ${maior} e o menor e ${menor}`);
+
+    </script>

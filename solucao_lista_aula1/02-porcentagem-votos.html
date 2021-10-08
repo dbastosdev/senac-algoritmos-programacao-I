@@ -1,0 +1,38 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+
+    <script>
+
+        // 1- Receber a quantidade de votos dos candidatos;
+        // 2- Receber a quantidade de votos nulos;
+        // 3- Receber a quantidade de votos brancos;
+        // 4- Apresentar: total de votos, percentual de votos de cada candidato,
+        // percentual de votos nulos e votos em branco. 
+
+        // Recebendo os votos:
+        let votosCandidatoUm = parseInt(prompt("Quantidade de votos do primeiro candidato"));
+        let votosCandidatoDois = parseInt(prompt("Quantidade de votos do segundo candidato"));
+        let votosCandidatoTres = parseInt(prompt("Quantidade de votos do terceiro candidato"));
+        let votosEmBranco = parseInt(prompt("Quantidade de votos em branco"));
+        let votosNulos = parseInt(prompt("Quantidade de votos nulos"));
+
+        // Cálculos
+        let totalDeVotos = 
+            votosCandidatoUm + votosCandidatoDois + votosCandidatoTres + votosEmBranco + votosNulos;
+
+        let percentualCandUm = ((votosCandidatoUm / totalDeVotos ) * 100).toFixed(2);
+        let percentualCandDois = ((votosCandidatoDois / totalDeVotos ) * 100).toFixed(2);
+        let percentualCandTres = ((votosCandidatoTres / totalDeVotos ) * 100).toFixed(2);
+        let percentualBrancos = ((votosEmBranco / totalDeVotos ) * 100).toFixed(2);
+        let percentualNulos = ((votosNulos / totalDeVotos ) * 100).toFixed(2);
+
+        // Apresentação dos resultados
+        document.writeln(`
+        O total de eleitores que votaram nessa eleição foi de ${totalDeVotos}. Desses: ${percentualCandUm}%
+        votaram no candidato um, ${percentualCandDois}% votaram no candidato dois e ${percentualCandTres}% votaram no candidato três.
+        Votos brancos e nulos ficaram com o percentual de ${percentualBrancos}% e ${percentualNulos}% respectivamente.  
+        `)
+
+
+
+    </script>

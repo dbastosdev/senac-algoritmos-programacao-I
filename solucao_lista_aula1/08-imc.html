@@ -1,0 +1,67 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+
+    <h1>Cálculo do IMC</h1>
+
+    <script>
+        // Receber: peso, altura e sexo do usuário;
+        // Cálcular imc de acordo com sexo
+        // Comparar resultados
+        // Exibir resultados
+        // tabela: https://capitalismosa.blogspot.com/2014/01/imc-masculino-e-feminino.html
+
+        // Receber dados: 
+        let peso = parseFloat(prompt("Digite seu peso em kg - ex. 80.50 ")).toFixed(2);
+        let altura = parseFloat(prompt("Digite sua altura em metros - ex. 1.76")).toFixed(2);
+        let sexo = parseInt(prompt("Selecione seu sexo: 1- Feminino ou 2- Masculino"));
+        
+        // Cálculo do imc:
+        let imc = (peso / (altura ** 2)).toFixed(2);
+        let dados = `Seus dados: ${peso} kg - ${altura} metros - IMC = ${imc}  <br>`;
+
+        //Comparação por sexo e exibição dos resultados
+        if(sexo == 1){
+
+            if(imc < 19.1){
+                document.writeln(dados);
+                document.writeln(`Você está com IMC abaixo de 19,1. Portanto, abaixo do peso. <br>`);
+            } else if(imc == 19.1 || imc < 25.8){
+                document.writeln(dados);
+                document.writeln(`Você está com IMC entre 19.1 e 25.9. Portanto, com peso regular <br>`);
+            } else if (imc == 25.8 || imc < 27.3){
+                document.writeln(dados);
+                document.writeln(`Você está com IMC entre 25.8 e 27.3. Portanto, levemente acima do peso <br>`);
+            } else if(imc == 27.3 || imc < 32.3){
+                document.writeln(dados);
+                document.writeln(`Você está com IMC entre 27.3 e 32.3. Portanto, acima do peso ideal <br>`);
+            } else if(imc > 32.3){
+                document.writeln(dados);
+                document.writeln(`Você está com IMC acima de 32.3. Portanto, com obsidade. <br>`);
+            }
+
+        } else if (sexo == 2) {
+
+            if(imc < 20.7){
+                document.writeln(dados);
+                document.writeln(`Você está com IMC abaixo de 20.7. Portanto, abaixo do peso. <br>`);
+            } else if(imc == 20.7 || imc < 26.4){
+                document.writeln(dados);
+                document.writeln(`Você está com IMC entre 20.7 e 26.4. Portanto, com peso regular <br>`);
+            } else if (imc == 26.4 || imc < 27.8){
+                document.writeln(dados);
+                document.writeln(`Você está com IMC entre 26.4 e 27.8. Portanto, levemente acima do peso <br>`);
+            } else if(imc == 27.8 || imc < 31.1){
+                document.writeln(dados);
+                document.writeln(`Você está com IMC entre 27.8 e 31.1. Portanto, acima do peso ideal <br>`);
+            } else if(imc > 31.1){
+                document.writeln(dados);
+                document.writeln(`Você está com IMC acima de 31.1. Portanto, com obsidade. <br>`);
+            }
+
+        } else {
+            alert("Revise suas informações para prosseguir")
+        }
+        
+
+
+    </script>

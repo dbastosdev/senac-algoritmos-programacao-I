@@ -1,0 +1,28 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+    
+    <h1> Avalie se vocẽ possui idade para votar </h1>
+
+    <script>
+
+        // Receber o ano atual e o ano de nascimento;
+        // Avaliar se pode ou não votar
+        // Exibir resultado
+
+        // Recebimento dos dados
+        let anoAtual = parseInt(prompt("Digite o ano atual"));
+        let anoDoNascimento = parseInt(prompt("Digite o ano seu nascimento"));
+        let idade = anoAtual - anoDoNascimento;
+
+        // Avalição e exibição dos dados
+        if(idade >= 70){
+            alert("O(a) senhor(a) tem voto facultativo")
+        } else if(idade > 18){
+            alert("Olá eleitor! Seu voto é obrigatório nas próximas eleições")
+        } else if (idade >= 16){
+            alert("Jovem, seu voto facultativo")
+        } else {
+            alert("Você ainda não pode votar")
+        }
+
+    </script>

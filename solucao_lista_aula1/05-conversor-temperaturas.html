@@ -1,0 +1,24 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+    
+    <h1>Conversor de temperatura</h1>
+
+    <script>
+        // 1- Receber a temperatura em Fahrenheith
+        // 2- Chamar função de conversão
+        // 3- Exibir código 
+
+        // 1- Declara a função
+        function conversor(temperaturaF){
+            let celsius =  parseFloat(100 * ((temperaturaF - 32) / 180)).toFixed(2);
+            document.writeln(`
+            A conversão de ${temperaturaF}F para graus Célsius 
+            equivale a ${celsius}C`);
+        }
+
+        // 2- Recebe a temperatura
+        let fahrenheith = parseFloat(prompt("Digite a temperatura em Farenheint:"));
+
+        conversor(fahrenheith);
+
+    </script>
