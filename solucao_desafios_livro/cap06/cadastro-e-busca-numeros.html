@@ -1,0 +1,42 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+
+    <script>
+
+        /*
+        Problema: 
+        Usuário cadastrar n valores que serão armazenados em um vetor. 
+        Após isso, usuário vai tentar achar os valores cadastrados. 
+        */
+
+        let vetorDeValores = [];
+        let entradaDeDados;
+        let tentativas = 1;
+        let terminar = 's';
+        let buscaDados;
+        let encontrou = false;
+        let i = 0;
+
+        while(terminar != 'n'){
+            entradaDeDados = prompt('Digite um valor numérico inteiro');
+            vetorDeValores[i] = parseInt(entradaDeDados);
+            terminar = prompt('Deseja continuar o cadastro? Digite: s - Sim e n - Não');
+            i ++;
+        }
+
+        buscaDados = parseInt(prompt('Digite um valor para ser buscado no array'));
+
+        for(let j = 0; j < vetorDeValores.length; j++){
+            if(buscaDados == vetorDeValores[j]){
+                alert(`Você encontrou um dado no vetor e ele está na posição: ${j}`);
+                encontrou = true;
+                break;
+            }
+        }
+
+        if(!encontrou){
+            alert('Você não encontrou nenhum dado')
+        }
+       
+
+    </script>

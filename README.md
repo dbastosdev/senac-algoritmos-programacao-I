@@ -9,9 +9,12 @@ Estudo de algoritmos e programação I com Javascript.
 
 *Nota 2: Para exebição da maioria dos resultados estou usando string literal. Nesse caso, a concatenação de texto e variáveis é mais simples. Não preciso ficar usando o sinal de "string" + variavel + "string" para alternar entre variáveis e strings. Todo o código fica entre os sinais de " ` " e as variáveis são inseridas dentro de " ${} ".*
 
-*Nota 3: Quando o resultado é muito extenso, utilizo o "document.write()" em vez de alert*
+*Nota 3: Quando o resultado é muito extenso, utilizo o "document.write()" em vez de alert() para exibir o resultado*
 
-*Nota 4: Copie o código entre as chaves '<script> codigo </script>' e cole no https://replit.com/~ para testar e editar se não usar um editor. *
+*Nota 4: Copie o código entre as chaves '<script> codigo </script>' e cole no https://replit.com/~ para testar e editar se não usar um editor.*
 
+*Nota 5: Utilizo a nova sintaxe do JS (JavaScript) para declaração de variáveis, com a palvra let ao invés de var.*
+
+## Dúvidas entre em contato: dbastos.dev@gmail.com
 
 

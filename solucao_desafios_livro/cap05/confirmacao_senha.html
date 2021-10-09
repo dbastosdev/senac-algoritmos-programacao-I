@@ -1,0 +1,36 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+
+    <script>
+
+        /*
+        Problema: 
+        Solicitar uma senha para cadastro de 6 dígitos e em seguida pedir confirmação da senha. 
+        Se a senha redigitada for igual a senha cadastrada prosseguir com sistema. Do contrário, invalidar o cadastro. 
+        máximo de 3 tentativas. 
+        */
+
+        let senha, confirmacaoSenha;
+        let tentativasCadastro = 1;
+
+        senha = prompt(`Digite uma senha de 6 digitos para cadastro - Essa é sua ${tentativasCadastro}º tentativa de no máximo 3.`);
+        while(senha.length < 6 && tentativasCadastro < 3){
+            tentativasCadastro ++;
+            senha = prompt(`Digite uma senha de 6 digitos para cadastro - Essa é sua ${tentativasCadastro}º tentativa de no máximo 3.`);
+        } 
+        
+        if(senha.length == 6){
+            confirmacaoSenha = prompt(`Confirme sua senha de 6 digitos para cadastro - Essa é sua ${tentativasCadastro}º tentativa de no máximo 3 para o cadastro.`);
+            while(senha !=confirmacaoSenha && tentativasCadastro < 3){
+                tentativasCadastro ++;
+                confirmacaoSenha = prompt(`Confirme sua senha de 6 digitos para cadastro - Essa é sua ${tentativasCadastro}º tentativa de no máximo 3 para o cadastro.`);
+            }
+        } 
+
+        if(senha == confirmacaoSenha){
+            alert('Senha cadastrada com sucesso');
+        } else {
+            alert('Senha não cadastrada. Você superou o número de tentativas')
+        }
+
+    </script>

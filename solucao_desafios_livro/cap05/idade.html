@@ -1,0 +1,26 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+
+    <script>
+
+        /*
+        Problema: 
+        Fazer a validação de idade para impedir que seja aceita idade menor que 0. Três tentativas de digitação de idade. 
+        */
+
+        // variáveis
+        let idade;
+        let tentativas = 0;
+
+        do {
+            tentativas ++;
+            idade = parseInt(prompt(`Tentativa ${tentativas}  de 3 : Digite uma idade válida`));
+        } while(idade <= 0 && tentativas < 3);
+
+        if(idade > 0){
+            alert('Idade cadastrada');
+        } else {
+            alert(`Idade não cadastrada cadastrada. Você excedeu o número de 3 tentativas`);
+        }
+
+    </script>

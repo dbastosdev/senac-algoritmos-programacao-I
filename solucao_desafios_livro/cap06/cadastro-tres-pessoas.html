@@ -1,0 +1,28 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+
+    <script>
+
+        /*
+        Problema: 
+        Cadastrar 3 pessoas: nome, e-mail e telefone. 
+        utilizar um array para cada tipo de informação. 
+
+        extra: exibir dados cadastrados
+        */
+
+        let arrayNomes = [];
+        let arrayEmails = [];
+        let arrayTelefone = [];
+
+        for(let i = 1; i <= 3; i++){
+            arrayNomes[i] = prompt(`Digite o nome da ${i}º Pessoa`);
+            arrayEmails[i] = prompt(`Digite o e-mail da ${i}º Pessoa`);
+            arrayTelefone[i] = prompt(`Digite o telefone da ${i}º Pessoa`);
+        }
+
+        for(let j = 1; j <= 3; j++){
+           alert(`Dados cadastrados da ${j}º pessoa: Nome: ${arrayNomes[j]} - e-mail: ${arrayEmails[j]} - Telefone: ${arrayTelefone[j]}`)
+        }
+
+    </script>

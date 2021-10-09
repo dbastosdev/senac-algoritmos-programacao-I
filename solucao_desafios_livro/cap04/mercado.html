@@ -1,0 +1,64 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+
+    <script>
+
+        /*
+        Problema: 
+
+        Imagine a seguinte situação: sua mãe pede para você ir ao mercado fazer compras.
+        – Filho, se tiver arroz tipo1, traga 1 kg dele e, com o troco, traga 2 kg de feijão preto. 
+        Caso tenha apenas arroz tipo 2, traga 3 kg dele e só 1 kg de feijão branco.
+        – Mãe, e se não tiver arroz? – você pergunta.
+        – Nesse caso, filho, traga 2 kg de lentilha e 1 kg de linguiça defumada.
+   
+        Ainda poderíamos atribuir um preço para cada produto e perguntar quanto foi gasto 
+        nessa compra e quanto foi o troco.         
+
+        */
+       
+        // Avalia se tem arroz do tipo 1
+        function condicaoUm(respostaUm){
+            if(respostaUm == 1){
+            totalCompra = ((PRECO_ARROZ_TIPO_1 * 1) + (PRECO_FEIJAO_PRETO * 2)).toFixed(2);
+            alert(`Você está levando para casa 1kg de arroz tipo 1 e 2kg de feijão preto. total da compra R$${totalCompra}`)
+            } else if(respostaUm == 2){
+                alert('Desculpe, mas o arroz do tipo 1 está em falta.');
+            }
+        }
+
+        // Avalia se tem arroz do tipo 2 e se tem arroz
+        function condicaoDois(respostaDois){
+            if(respostaDois == 1){
+            totalCompra = ((PRECO_ARROZ_TIPO_2 * 3) + (PRECO_FEIJAO_BRANCO * 1)).toFixed(2);
+            alert(`Você está levando para casa 3kg de arroz tipo 2 e 1kg de feijão branco. total da compra R$${totalCompra}`)
+            } else if(respostaDois == 2){
+                alert('Desculpe, mas não temos arroz');
+                totalCompra = ((PRECO_LENTILHA * 2) + (PRECO_LINGUICA_DEFUMADA * 1)).toFixed(2);
+                alert(`Você está levando para casa 2kg de lentinha e 1kg de linguiça defumada. total da compra R$${totalCompra}`)
+            }
+        }
+
+        // Entrada de preços dos produtos
+        const PRECO_ARROZ_TIPO_1 = parseFloat(prompt('Digite o preço o arroz tipo 1'));
+        const PRECO_FEIJAO_PRETO = parseFloat(prompt('Digite o preço do feijão preto'));
+        const PRECO_ARROZ_TIPO_2 = parseFloat(prompt('Digite o preço o arroz tipo 2'));
+        const PRECO_FEIJAO_BRANCO = parseFloat(prompt('Digite o preço o feijão branco'));
+        const PRECO_LENTILHA = parseFloat(prompt('Digite o preço da lentilha'));
+        const PRECO_LINGUICA_DEFUMADA = parseFloat(prompt('Digite o preço da linguiça defumada'));
+
+        // Variável compra
+        let totalCompra;
+        
+        // Indo as compras
+        let respostaUm, respostaDois;
+
+        // Execução do código e chamada de funções
+        respostaUm = prompt('Tem arroz tipo 1? Responda: 1- sim ou 2- não');
+        condicaoUm(respostaUm);
+        
+
+        respostaDois = prompt('Tem arroz tipo 2? Responda: 1- sim ou 2- não');
+        condicaoDois(respostaDois);
+        
+    </script>

@@ -1,0 +1,30 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+
+    <script>
+
+        /*
+        Problema: Avaliar se uma pessoa possui idade para votar. 
+        */
+
+        let idade;
+
+        // Função que é chamada para testar se alguém pode ou não votar. 
+        function podeVotar(idade){
+            if(idade >= 16 && idade < 18 || idade >= 70){
+                alert('Você pode votar, mas seu voto é facultativo');
+            } else if (idade >= 18){
+                alert('Você precisa votar obrigatoriamente');
+            } else {
+                alert('Você é muito jovem e ainda não pode votar')
+            }
+        }
+
+        // Entrada de dados do usuário com idade. 
+        idade = parseInt(prompt('Digite sua idade'));
+
+        // Chama a função para testar a idade. 
+        podeVotar(idade);
+
+        
+    </script>

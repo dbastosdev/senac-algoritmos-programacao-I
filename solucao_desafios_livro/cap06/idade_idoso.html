@@ -1,0 +1,31 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+
+    <script>
+
+        /*
+        Problema: 
+        Buscar em um vetor da se uma determinada idade existe nesse vetor. 
+        extra: informar a posição caso exista. 
+        */
+
+        let vetorDeIdades = [60, 61, 87, 79, 74, 88, 92, 105, 101, 99, 94, 85, 67, 65, 81];
+        let idadeBuscada = parseInt(prompt('Digite uma idade para buscar em nosso banco de dados'));
+        
+
+        for(let i = 0; i < vetorDeIdades.length; i++){
+            
+            if(idadeBuscada == vetorDeIdades[i]){
+                alert(`Achamos a sua idade em nosso cadastro. Ela estava na posição ${i} de nosso banco de dados`);
+                break;
+            } 
+
+            if(i == vetorDeIdades.length - 1){
+                alert(`Infelizmente não encontramos sua iadade em nosso banco de dados.`);
+            }
+            
+        }
+
+
+
+    </script>

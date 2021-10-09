@@ -1,0 +1,41 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+
+    <script>
+
+        /*
+        Problema: 
+        Solicitar a senha de um cliente de banco. Enquanto ele errar a senha, pedir para redigitá-la, com um máximo de 3 tentativas. 
+        */
+
+        const SENHA_BANCO = 123456;
+        let senha;
+        let tentativas = 1; 
+
+        senha = prompt('Digite sua senha de 6 digitos para entrar no sistema você tem apenas 3 tentativas');
+
+        if(senha != SENHA_BANCO){
+            while(senha != SENHA_BANCO && tentativas < 3){
+                tentativas ++;
+                alert(`Senha não autenticada. Essa é a sua tentativa ${tentativas} de 3`)
+                senha = prompt('Digite novamente sua senha')
+
+                if(senha == SENHA_BANCO){
+                    alert('Acesso ao sistema liberado');
+                    break;
+                } 
+                
+                if(tentativas == 3){
+                    alert('Sistema bloqueado. Você excedeu o seu limite de tentativas de acesso ao sistema. Consulte o seu gerente.');
+                }
+            }
+        } else {
+            alert('Acesso ao sistema liberado');
+        }
+        
+        
+        
+
+        
+
+    </script>

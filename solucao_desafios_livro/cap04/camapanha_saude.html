@@ -1,0 +1,38 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+
+    <script>
+
+        /*
+        Problema: 
+        Identificar mulheres com mais de 16 anos para participar de campanha de saúde. 
+        Além disso, se a pessoa for homem, será identificado seu estado civil. Se for casado, será convidado
+        para campanha de saúde de casais. Se for solteiro, será convidado para camapanha de doação de sangua. 
+        */
+
+        // função da camapanha de saúde
+        function camapanhaDeSaude(sexo){
+            if(sexo == 'F'){
+                idade = parseInt(prompt('Digite sua idade'));
+                if(idade >= 16){
+                    alert("Venha participar de nossa campanha de saúde.");
+                } else {
+                    alert('Você ainda não possui idade para participar de nossa campanha de saúde');
+                }
+            } else {
+                estadoCivil = prompt('Qual o seu estado civil? Digite 1: Solteiro ou 2: Casado');
+                if(estadoCivil == 1){
+                    alert('Participe de nossa campanha de doação de sangua.');
+                } else {
+                    alert('Participe de nossa campanha de saúde para casais.');
+                }
+            }    
+        }
+
+        // Variáveis
+        let idade, sexo, estadoCivil;
+
+        sexo = prompt('Digite o seu sexo: Escolha M - para masculino e F - para feminino');
+        camapanhaDeSaude(sexo);
+
+    </script>
