@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo</title>
+
+    <!-- estilo da tabela-->
+    <style>
+        table {
+            border-collapse: collapse; /* Estiliza uma borda simples na tabela*/
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 35px;
+            margin: 0 auto;
+        }
+
+        #sorteado {
+            background-color: blue;
+        }
+
+        #estrutura-bingo {
+            background-color: darkslategray;
+        }
+
+        button{
+            margin-top: 10px;
+        }
+
+        p{
+            border: 1px solid black;
+            padding: 40px ;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <table id="bingo">
+       
+    </table>
+
+    <div><p id="numeroSorteado">?</p></div>
+    <button id="gerarCartela">Gerar nova cartela</button>
+    <br>
+    <button id="sorteiaNovoNumero">Sortear</button>
+    
+
+
+
+    <script>
+        /*
+        Problema: 
+        Simular um jogo do bingo
+        */
+
+        let tabela = [['B','I','N','G','O' ],[],[],[],[],[]];
+       
+        // Function: Sortear novo número aleatório
+        function sortearNumeroAleatorio(){
+            let numeroBingo = Math.floor(Math.random() * (75 - 1) + 1);
+            document.querySelector("#numeroSorteado").innerHTML = numeroBingo;
+        
+            avaliaNumeroSorteado(numeroBingo);
+
+        }
+
+       
+        // Cria e atualiza a cartela para o bingo
+        function cartela(){
+            // Variável que armazena dados das colunas. Se não inicializar vazio vai gerar problema na renderização do html.
+            let htmlTabela = ''; 
+            let valorAleatorio;
+
+            // Gera tabela
+            for( let i = 0; i < 6; i++){
+                htmlTabela += `<tr>`
+                for(let j = 0; j < 5; j++){
+
+                    if(i == 0){
+                        htmlTabela += `<th id="estrutura-bingo">${tabela[0][j]}</th>`;
+                    } else if (i == 3 && j == 2) {
+                        htmlTabela += `<th id="estrutura-bingo">FREE</th>`
+                    } else {
+                        valorAleatorio = Math.floor(Math.random() * (75 - 1) + 1);
+                        tabela[i][j] = valorAleatorio;
+                        htmlTabela += `<th>${tabela[i][j]}</th>`;
+                    }
+                }
+                htmlTabela += `</tr>`
+            }
+
+            // Renderiza as colunas preenchidas
+            document.querySelector("#bingo").innerHTML = htmlTabela;
+
+        }
+
+
+        // Tabela sorteada - Renderiza por cima da tabela criada inicialmente os números sorteados 
+        function tabelaSorteada(){
+            let htmlRenderizado = ''; 
+            // Gera tabela
+            for( let i = 0; i < 6; i++){
+                htmlRenderizado += `<tr>`
+                for(let j = 0; j < 5; j++){
+
+                    if(i == 0){
+                        htmlRenderizado += `<th id="estrutura-bingo">${tabela[0][j]}</th>`;
+                    } else if (i == 3 && j == 2) {
+                        htmlRenderizado += `<th id="estrutura-bingo">FREE</th>`
+                    } else if(tabela[i][j] == 'X'){
+                        htmlRenderizado += `<th id="sorteado">${tabela[i][j]}</th>`;
+                    } else {
+                        htmlRenderizado += `<th>${tabela[i][j]}</th>`;
+                    }
+                }
+                htmlRenderizado += `</tr>`
+            }
+
+            // Renderiza as colunas preenchidas
+            document.querySelector("#bingo").innerHTML = htmlRenderizado;
+
+        }
+
+
+        // Avalia se número sorteado está na tabela e chama renderização de tabela sorteada
+        function avaliaNumeroSorteado(numero){
+
+            let numeroDoSorteio = numero;
+
+            for( let i = 0; i < 6; i++){
+                for(let j = 0; j < 5; j++){
+                    if(numeroDoSorteio == tabela[i][j]){
+                        tabela[i][j] = 'X'
+                        tabelaSorteada();
+                    }
+                }
+            }
+        }
+
+        let sortear = document.getElementById("sorteiaNovoNumero");
+        sortear.addEventListener("click", sortearNumeroAleatorio);
+
+        let gerarCartela = document.getElementById("gerarCartela");
+        gerarCartela.addEventListener("click", cartela);
+
+
+
+    </script>
+</body>
+</html>
+
+<!-- Teste automático de botão para não ter que ficar clicando
+setInterval( function(){ document.querySelector('#sorteiaNovoNumero').click();}, 100);
+-->
+
+    
