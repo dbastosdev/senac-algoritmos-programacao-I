@@ -113,7 +113,7 @@
                         htmlRenderizado += `<th id="estrutura-bingo">${tabela[0][j]}</th>`;
                     } else if (i == 3 && j == 2) {
                         htmlRenderizado += `<th id="estrutura-bingo">FREE</th>`
-                    } else if(tabela[i][j] == 'X'){
+                    } else if(typeof tabela[i][j] === 'string'){ // Compara tipo e valor
                         htmlRenderizado += `<th id="sorteado">${tabela[i][j]}</th>`;
                     } else {
                         htmlRenderizado += `<th>${tabela[i][j]}</th>`;
@@ -127,7 +127,7 @@
 
         }
 
-
+            
         // Avalia se número sorteado está na tabela e chama renderização de tabela sorteada
         function avaliaNumeroSorteado(numero){
 
@@ -136,7 +136,7 @@
             for( let i = 0; i < 6; i++){
                 for(let j = 0; j < 5; j++){
                     if(numeroDoSorteio == tabela[i][j]){
-                        tabela[i][j] = 'X'
+                        tabela[i][j] = tabela[i][j].toString();
                         tabelaSorteada();
                     }
                 }
@@ -158,5 +158,3 @@
 <!-- Teste automático de botão para não ter que ficar clicando
 setInterval( function(){ document.querySelector('#sorteiaNovoNumero').click();}, 100);
 -->
-
-    
