@@ -1,0 +1,114 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+
+    <script>
+
+        /*
+        Problema: 
+        Criar um CRUD de array. 
+        */
+      
+
+        // Função para adicionar um item novo
+        function adicionarNovoItem(array, item){
+            array[array.length] = item;
+            alert(`OPERAÇÃO DE INSERIR NOVO ITEM NO ARRAY REALIZADA COM SUCESSO!`)
+            alert(`O item ${item} foi adicionado. Novo array: ${array}`);
+        }
+
+        // Função para ler / pesquisar um dado no array
+        function lerArray(array, item){
+            let encontrado = false;
+            for(let i = 0; i < array.length; i++){
+                if(array[i] == item){
+                    alert(`OPERAÇÃO DE LEITURA DE ITEM NO ARRAY REALIZADA COM SUCESSO!`)
+                    alert(`O item ${item} foi encontrado na lista na posição ${i}. Situação atual do array: ${array}`);
+                    encontrado = true;
+                }
+            }
+            if(!encontrado){
+                alert(`${item} não foi encontrado no array`);
+            }
+           
+        }
+
+        // Função para atualizar / substituir um dado no array
+        function editarArray(array, itemAtual, itemNovo){
+            for(let i = 0; i < array.length; i++){
+                if(array[i] == itemAtual){
+                    array[i] = itemNovo;
+                    alert(`OPERAÇÃO DE EDIÇÃO DE ITEM NO ARRAY REALIZADA COM SUCESSO!`)
+                    alert(`Array atualizado - posição ${i}. Novo array: ${array}`);
+                }
+            }           
+        }
+
+        // Função para deletar um dado no array
+        function deletarArray(array, item){
+            for(let i = 0; i < array.length; i++){
+                if(array[i] == item){
+                    array[i] = null;
+                    alert(`OPERAÇÃO DE DELETAR NO ARRAY REALIZADA COM SUCESSO!`)
+                    alert(`O item ${item} foi deletado. Novo array: ${array}`);
+                }
+            } 
+        }
+
+        // Teste CRUD: 
+
+        // Criar novo array: 
+        let tamanhoArray = parseInt(prompt(`Digite um número inteiro para o tamanho do array: `));
+        let novoArray = [];
+        for(let i=0; i < tamanhoArray; i++){
+            novoArray[i] = prompt(`Digite o ${i+1}º valor do array`)
+        }
+        alert(`O array criado foi: ${novoArray}`)
+
+        // Entra no sistema CRUD: 
+        let sair = 0;
+        let valor = 0;
+        let novoValor = 0;
+        while(sair != 5){
+
+            let opcao = parseInt(prompt(`Digite uma opção para realizar no array:
+                                '1' para inserir um novo item no array;
+                                '2' para verificar se um item existe no array;
+                                '3' para editar um item do array;
+                                '4' para excluir um item do array;
+                                '5' para sair.`));
+            switch(opcao){
+                case 1: 
+                    valor = parseInt(prompt('Digite o valor a ser inserido na lista'));
+                    adicionarNovoItem(novoArray, valor);
+                    break;
+
+                case 2:
+                    valor = parseInt(prompt('Digite o valor a ser buscado na lista'));
+                    lerArray(novoArray, valor); 
+                    break;
+
+                case 3:
+                    valor = parseInt(prompt('Digite o valor a modificado na lista'));
+                    novoValor = parseInt(prompt('Digite o valor a ser inserido na lista'));
+                    editarArray(novoArray, valor, novoValor); 
+                    break
+
+                case 4:
+                    valor = parseInt(prompt('Digite o valor a ser deletado na lista'));
+                    deletarArray(novoArray, valor); 
+                    break;
+
+                case 5:
+                    sair = 5;
+                    break;
+
+                default:
+                    alert('Selecione uma opção válida');
+            }
+
+
+        }
+
+       alert("Obrigado por usar o meu primeiro CRUD")
+
+</script>
