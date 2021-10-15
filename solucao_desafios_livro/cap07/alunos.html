@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Notas e medias</title>
+
+        <style>
+            table {
+                border-collapse: collapse; /* Estiliza uma borda simples na tabela*/
+            }
+    
+            table, th, td {
+                border: 1px solid black;
+                padding: 20px;
+                margin: 0 auto;
+                margin-top: 20px;
+            }    
+        </style>
+
+    </head>
+    <body>
+
+        <table id="notas">
+       
+        </table>
+
+        <table id="resultados">
+       
+        </table>
+
+        <button id="pesquisar">Pesquisar nota de um aluno</button>
+
+        <script>
+
+            /*
+            Problema: 
+            Cadastrar as médias de 10 alunos. 
+            A primeira linha da matriz com o nome dos alunos
+            cada coluna com terá as notas das disciplinas: português, matemática, física e biologia. 
+            Deve haver uma segunda matriz para informar se o aluno foi aprovado ou reprovado de acordo com a média da primeira matriz. 
+
+            Obs.: Essa não é a melhor estrutura de dados para montar o problema, mas comom esse foi o desafio proposto, será utilizado essa estrutura. 
+            Os dados são de natureza distintas, logo os arrays ficam com dados mistos. Seria bom utilizar objetos. 
+            */
+
+            // Quantidade de alunos
+            let quantidadeAlunos = parseInt(prompt("Digite a quantidade de alunos: "));
+
+            // Matriz com cabeçalho e nota dos alunos
+            let mediasDosAlunos = [["MÉDIA"],["PORTUGUÊS"],["MATEMÁTICA"],["FÍSICA"],["BIOLOGIA"]];
+            let htmlMedias = "";
+
+            for(let i = 0; i < mediasDosAlunos.length ; i++){
+                htmlMedias += `<tr>`
+                htmlMedias += `<th> ${mediasDosAlunos[i][0]}</th>`;
+                for(let j = 1; j < quantidadeAlunos + 1; j++){
+                    if(i == 0){
+                        mediasDosAlunos[i][j] = prompt(`Digite o nome do aluno do ${j}º aluno`);
+                    } else {
+                        mediasDosAlunos[i][j] = parseFloat(prompt(`Digite a média do aluno ${mediasDosAlunos[0][j]} na matéria de ${mediasDosAlunos[i][0]}`)).toFixed(2);
+                    }
+                    htmlMedias += `<th>${mediasDosAlunos[i][j]}</th>`;
+                }
+                htmlMedias += `</tr>`
+            }
+            
+            document.querySelector("#notas").innerHTML = htmlMedias;
+
+            // Matriz de resultados
+            let resultados = [["SITUACAO"],["PORTUGUÊS"],["MATEMÁTICA"],["FÍSICA"],["BIOLOGIA"]];
+            let htmlResultados = "";
+
+            for(let i = 0; i < resultados.length ; i++){
+                htmlResultados += `<tr>`
+                htmlResultados += `<th> ${resultados[i][0]}</th>`;
+                for(let j = 1; j < quantidadeAlunos + 1; j++){
+                    if(i == 0){
+                        resultados[i][j] = mediasDosAlunos[i][j];
+                    } else {
+                        if(mediasDosAlunos[i][j] >= 7){
+                            resultados[i][j] = "APROVADO";
+                        } else {
+                            resultados[i][j] = "REPROVADO";
+                        }
+                        
+                    }
+                    htmlResultados += `<th>${resultados[i][j]}</th>`;
+                }
+                htmlResultados += `</tr>`
+            }
+            
+            document.querySelector("#resultados").innerHTML = htmlResultados;
+
+            // Busca média na matriz
+            function buscaMedia(){
+                let aluno = prompt("Digite um nome para buscar o aluno");
+                let materia = prompt("Digite um nome de matéria cursada pelo aluno")
+                let flag = 0;
+                for(let i = 0; i < mediasDosAlunos.length; i++){
+                    for(let j = 0; j < quantidadeAlunos + 1; j++){
+                        if(aluno == mediasDosAlunos[0][j] && materia == mediasDosAlunos[i][0]){
+                           alert(`O aluno: ${aluno} tirou nota: ${mediasDosAlunos[i][j]} - situação: ${resultados[i][j]}`);
+                            flag = 1;
+                            break;
+                        }
+                    }
+                }
+                if(flag == 0){
+                   alert("Aluno e/ou matéria não encontrado");
+                }
+            }
+
+            let pesquisa = document.querySelector("#pesquisar").addEventListener('click',buscaMedia);
+
+
+        </script>
+    </body>
+</html>
