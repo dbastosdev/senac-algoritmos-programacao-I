@@ -1,0 +1,64 @@
+<!-- Essa tag é utilizada para não haver problemas de acentuação no código em html -->
+<meta charset="UTF-8">
+
+    <script>
+
+
+        // Problema: Sistema de menu que recebe 3 notas e calcula a média
+
+        // Variáveis globais
+        let notas = [];
+        let medias = 0;
+
+        // Função para inserir notas: 
+        function inserirNotas(){
+            let nota = parseFloat(prompt('Digite uma nota: '));
+            if(nota >= 0 && nota <= 10){
+                notas.push(nota);
+            } else {
+                alert("Digite uma nota entre 0 e 10");
+            }
+            
+        }
+
+        // Função para cálculo de média das notas: 
+        function calculaMedia(){
+
+            if(notas[0] == null){
+                alert("erro. Não existem notas para serem computadas");
+                return 0;
+            } else {
+                let soma = 0;
+                for(let i=0; i < notas.length; i++){
+                    soma += notas[i];
+                }
+                medias = parseFloat(soma / notas.length);
+                return medias.toFixed(2);
+            }            
+        }
+
+        // Menu
+        let sair = 0;
+        while(sair != 3){
+            let menu = parseInt(prompt(`
+            Digite uma opção:
+            1- Para inserir uma nota no sitema;
+            2- Para calcular a média com as notas do sistema
+            3- Para sair `))
+            switch(menu){
+                case 1:
+                    inserirNotas();
+                    break;
+                case 2: 
+                    mf = calculaMedia()
+                    alert(`A média das notas digitadas é: ${mf}`);
+                    break;
+                case 3: 
+                    sair = 3;
+                    alert("Obrigado por usar o nosso sistema. Volte sempre");
+                    break
+                default:
+                    alert("Selecione uma opção válida")
+            }
+        }
+</script>
