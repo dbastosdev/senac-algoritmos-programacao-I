@@ -52,8 +52,6 @@ function criaDisciplina(edicao = 0){
 
 // Atualiza disciplina:
 function atualizarDisciplina(){
-    //deletarDisciplina();
-    //criaDisciplina();
     let disciplina = prompt("Digite o nome da disciplina a ser editada: ");
     for (let i = 0; i < gradeNotas.length; i++){
         if(gradeNotas[i][0] == disciplina){
@@ -85,9 +83,7 @@ function deletarDisciplina(editar = 0){
     let disciplina = prompt("Digite o nome da disciplina a ser excluída / editada");
     for (let i = 0; i < gradeNotas.length; i++){
         if(gradeNotas[i][0] == disciplina){
-            //gradeNotas.splice(i, 1);
             gradeNotas[i] = "";
-            console.log(gradeNotas);
             break;
         }
     }
